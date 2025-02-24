@@ -57,3 +57,21 @@ class Company {
              return total + employee.calculateAnnualSalary(); // total payroll
          }, 0); // calculating total payroll
      }; // payroll system
+
+     // Task 5
+     promoteToManager (employee, teamSize) {
+        const index = this.employees.indexOf(employee);
+        if (index !== -1)
+         this.employees[index] = new Manager(employee.name, employee.id, employee.department, employee.salary, teamSize); // promotion to manager
+     }
+ }; // company class
+ 
+ const company = new Company("TechCorp"); // new company
+ company.addEmployee(emp1); // add employee
+ company.addEmployee(mgr1); // add manager
+ company.listEmployees(); // list of employees
+ 
+ console.log(company.calculateTotalPayroll()); // print total payroll
+ 
+ company.promoteToManager(emp1, 3); // promote employee
+ company.listEmployees(); // new employee list
